@@ -105,7 +105,7 @@ const Home = async () => {
               </p>
               <p className="mt-4">
                 We genuinely care for our customers and develop long-term
-                relationships through consistent quality. Our customers' smiles
+                relationships through consistent quality. Our customers smiles
                 and satisfaction motivate us to keep raising the bar on our car
                 repair services every single day.
               </p>
