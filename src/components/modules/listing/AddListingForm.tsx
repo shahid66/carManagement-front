@@ -22,7 +22,7 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Category } from "@/constants";
-import { addListing } from "@/services/listingService";
+import { addListing } from "@/services/partsService";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";

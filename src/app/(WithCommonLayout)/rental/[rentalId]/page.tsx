@@ -1,6 +1,6 @@
 import RentalHouseDetails from "@/components/modules/details/HomeDetails";
 import { getCurrentUser } from "@/services/AuthService";
-import { getSingleListing } from "@/services/listingService";
+import { getSingleListing } from "@/services/partsService";
 import { getSingleRequestByUser } from "@/services/RequestService";
 
 const DetailsPage = async ({
@@ -18,7 +18,7 @@ const DetailsPage = async ({
 
   console.log(requestStatus, "request Status");
 
-  return <RentalHouseDetails house={data} requestStatus={requestStatus}/>;
+  return <RentalHouseDetails house={data} requestStatus={requestStatus} />;
 };
 
 export default DetailsPage;

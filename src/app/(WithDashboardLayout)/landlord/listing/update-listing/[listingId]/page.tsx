@@ -1,5 +1,5 @@
 import UpdateListingForm from "@/components/modules/listing/UpdateListingForm";
-import { getSingleListing } from "@/services/listingService";
+import { getSingleListing } from "@/services/partsService";
 
 const UpdateProductPage = async ({
   params,

@@ -30,11 +30,6 @@ const HeroSlide: React.FC<DemoSliderProps> = ({ data }) => {
     <div className="py-16 bg-gray-100">
       <BFContainer>
         <div className="container mx-auto text-center">
-          {/* Title */}
-          <h2 className="text-2xl text-center font-bold text-gray-900 mb-2">
-            Some Reviews From Our Clients
-          </h2>
-          <div className="h-1 w-12 bg-green-400 mx-auto mb-8 rounded-full" />
           <Swiper
             navigation
             pagination={{ type: "bullets", clickable: true }}

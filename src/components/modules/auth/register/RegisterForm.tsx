@@ -13,10 +13,9 @@ import Link from "next/link";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useUser } from "@/context/UserContext";
 import { registerUser } from "@/services/AuthService";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { registerSchema } from "./registerValidation";
@@ -24,9 +23,6 @@ import { registerSchema } from "./registerValidation";
 export default function RegisterForm() {
   const form = useForm({
     resolver: zodResolver(registerSchema),
-    defaultValues: {
-      role: "tenant", // Set the default role value to "tenant"
-    },
   });
 
   const {
@@ -35,7 +31,7 @@ export default function RegisterForm() {
 
   const password = form.watch("password");
   const passwordConfirm = form.watch("passwordConfirm");
-  const selectedRole = form.watch("role");
+
   const router = useRouter();
 
   const { setIsLoading } = useUser();
@@ -58,7 +54,9 @@ export default function RegisterForm() {
   return (
     <div className="border-2 border-gray-300 rounded-xl flex-grow max-w-md w-full p-5">
       <div className="flex justify-center flex-col items-center space-x-4 ">
-        <span className="text-4xl">🏡</span>
+        <span className="text-4xl">
+          <Image height={22} width={22} src="/logo.png" alt="" />
+        </span>
         <h1 className="text-xl font-semibold">Register</h1>
         <p className="font-extralight text-sm text-gray-600">
           Join us today and start your journey!
@@ -122,32 +120,6 @@ export default function RegisterForm() {
                 ) : (
                   <FormMessage />
                 )}
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="role"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Role</FormLabel>
-                <FormControl>
-                  <RadioGroup
-                    onValueChange={field.onChange}
-                    value={field.value}
-                    className="my-4 flex gap-4"
-                  >
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="tenant" id="r1" />
-                      <Label htmlFor="r1">Tenant</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="landlord" id="r2" />
-                      <Label htmlFor="r2">Landlord</Label>
-                    </div>
-                  </RadioGroup>
-                </FormControl>
-                <FormMessage />
               </FormItem>
             )}
           />

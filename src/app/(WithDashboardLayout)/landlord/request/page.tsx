@@ -1,5 +1,5 @@
 import ManageListingRequests from "@/components/modules/listing/ManageListingsRequest";
-import { getAllRequestByOwner } from "@/services/listingService";
+import { getAllRequestByOwner } from "@/services/partsService";
 
 const page = async () => {
   const { data } = await getAllRequestByOwner();

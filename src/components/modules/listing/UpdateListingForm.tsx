@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Category } from "@/constants";
-import { updateListing } from "@/services/listingService";
+import { updateListing } from "@/services/partsService";
 import { IListing } from "@/types/listing";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

@@ -13,7 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { updateListingRequest } from "@/services/listingService";
+import { updateListingRequest } from "@/services/partsService";
 import { useState } from "react";
 import { toast } from "sonner";
 import { z } from "zod";

@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import DeleteConfirmationModal from "@/components/ui/core/BFModal/DeleteConfirmationModal";
 import ViewModal from "@/components/ui/core/BFModal/ViewModal";
 import TablePagination from "@/components/ui/core/BFTable/TablePagination";
-import { deleteListing } from "@/services/listingService";
+import { deleteListing } from "@/services/partsService";
 import { IListing } from "@/types/listing";
 import { IMeta } from "@/types/meta";
 import { ColumnDef } from "@tanstack/react-table";
@@ -136,9 +136,7 @@ const ManageListingsAdmin = ({
             className="text-gray-500 hover:text-green-500"
             title="Edit"
             onClick={() =>
-              router.push(
-                `/admin/listing/update-listing/${row.original._id}`
-              )
+              router.push(`/admin/listing/update-listing/${row.original._id}`)
             }
           >
             <Edit className="w-5 h-5" />
@@ -160,7 +158,6 @@ const ManageListingsAdmin = ({
     <div>
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-bold">Manage Listings</h1>
-
       </div>
       <BFTable columns={columns} data={products || []} />
       <TablePagination totalPage={meta?.totalPage} />

@@ -1,6 +1,6 @@
 "use client";
 
-import { updateProfile } from "@/services/listingService";
+import { updateProfile } from "@/services/partsService";
 import { IUser } from "@/types/user";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -20,7 +20,7 @@ export default function EditProfilePage({ userData }: { userData: IUser }) {
 
   const [isLoading, setIsLoading] = useState(false);
   const [previewImage, setPreviewImage] = useState(userData.image || "");
-  
+
   const [imageFiles, setImageFiles] = useState<File[] | []>([]);
 
   const handleChange = (
@@ -38,29 +38,26 @@ export default function EditProfilePage({ userData }: { userData: IUser }) {
     }
   };
 
-
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Prepare the data to send to the backend
-let imageProcessUrl=user.imageUrl;
-    if(imageFiles.length>0){
+    let imageProcessUrl = user.imageUrl;
+    if (imageFiles.length > 0) {
       const formData = new FormData();
       imageFiles.forEach((file) => formData.append("images", file));
 
-    const uploadRes = await fetch("/api/upload", {
-      method: "POST",
-      body: formData,
-    });
+      const uploadRes = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
 
-    const uploadData = await uploadRes.json();
-    imageProcessUrl=uploadData.urls[0]; // Assuming the API returns an array of URLs
-    if (!uploadData.success) {
-      toast.error("Image upload failed");
-      return;
-    }
-    
+      const uploadData = await uploadRes.json();
+      imageProcessUrl = uploadData.urls[0]; // Assuming the API returns an array of URLs
+      if (!uploadData.success) {
+        toast.error("Image upload failed");
+        return;
+      }
     }
     const data = {
       name: user.name,

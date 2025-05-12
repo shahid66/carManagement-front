@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import DeleteConfirmationModal from "@/components/ui/core/BFModal/DeleteConfirmationModal";
 import ViewModal from "@/components/ui/core/BFModal/ViewModal";
 import TablePagination from "@/components/ui/core/BFTable/TablePagination";
-import { deleteListing } from "@/services/listingService";
+import { deleteListing } from "@/services/partsService";
 import { IListing } from "@/types/listing";
 import { IMeta } from "@/types/meta";
 import { ColumnDef } from "@tanstack/react-table";

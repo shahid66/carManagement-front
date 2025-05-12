@@ -1,8 +1,8 @@
 import ApartmentCard, {
   House,
-} from "@/components/modules/apartment/apartmentCard";
+} from "@/components/modules/part/part";
 import FilterSection from "@/components/modules/home/SearchSection/FilterSection";
-import { getAllListings } from "@/services/listingService";
+import { getAllListings } from "@/services/partsService";
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 const AllListingPage = async ({
   searchParams,
@@ -10,7 +10,7 @@ const AllListingPage = async ({
   searchParams: SearchParams;
 }) => {
   const query = await searchParams;
- 
+
   const { data } = await getAllListings(undefined, undefined, query);
   console.log(data?.result);
   return (

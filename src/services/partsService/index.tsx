@@ -2,13 +2,13 @@
 import { revalidateTag } from "next/cache";
 import { cookies } from "next/headers";
 
-export const getSingleListing = async (productId: string) => {
+export const getSinglePart = async (productId: string) => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_API}/landlords/listings/${productId}`,
+      `${process.env.NEXT_PUBLIC_BASE_API}/part/${productId}`,
       {
         next: {
-          tags: ["LISTING"],
+          tags: ["PARTS"],
         },
       }
     );
@@ -19,7 +19,7 @@ export const getSingleListing = async (productId: string) => {
   }
 };
 
-export const getAllListings = async (
+export const getAllParts = async (
   page?: string,
   limit?: string,
   query?: { [key: string]: string | string[] | undefined }
@@ -45,29 +45,10 @@ export const getAllListings = async (
 
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_API}/landlords?limit=${limit}&page=${page}&${params}`,
+      `${process.env.NEXT_PUBLIC_BASE_API}/part?limit=${limit}&page=${page}&${params}`,
       {
         next: {
-          tags: ["LISTING"],
-        },
-      }
-    );
-    const data = await res.json();
-    return data;
-  } catch (error: any) {
-    return Error(error.message);
-  }
-};
-export const getAllListingsByOwner = async () => {
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_API}/landlords/listings`,
-      {
-        headers: {
-          authorization: (await cookies()).get("accessToken")!.value,
-        },
-        next: {
-          tags: ["LISTING"],
+          tags: ["PARTS"],
         },
       }
     );

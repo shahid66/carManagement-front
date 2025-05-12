@@ -1,7 +1,7 @@
 import BFChart from "@/components/ui/core/Chart/BFChart";
-import { getRequestCount } from "@/services/listingService";
+import { getRequestCount } from "@/services/partsService";
 
-const LandLordDashboard = async() => {
+const LandLordDashboard = async () => {
   const result = await getRequestCount();
   return (
     <div>
